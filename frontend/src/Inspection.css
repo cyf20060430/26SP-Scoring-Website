@@ -1,0 +1,33 @@
+.save-btn {
+  background-color: #FFD700; /* 黄色 */
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pass-btn {
+  background-color: #32CD32; /* 绿色 */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-btn {
+  background-color: white; /* 白色背景 */
+  color: black;            /* 黑色文字 */
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  border: 1px solid #ccc;  /* 灰色边框，避免看不见按钮 */
+  border-radius: 5px;
+  cursor: pointer;
+}
+

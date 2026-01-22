@@ -1,0 +1,223 @@
+/* frontend/src/judge.css */
+
+:root {
+  --font-base: 22px;
+  --font-lg: 32px;
+  --font-xl: 48px;
+  --border: #333;
+  --bg: #f7f7f7;
+  --white: #fff;
+  --red: #d60000;
+  --blue: #004ad6;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-size: var(--font-base);
+  font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: #111;
+}
+
+.page-title {
+  text-align: center;
+  margin: 16px 0 8px;
+  font-weight: 800;
+}
+
+.judge-page {
+  text-align: center;
+  padding: 0 20px 20px;
+}
+
+/* 顶部选择栏 */
+.topbar {
+  margin-bottom: 8px;
+}
+.match-select {
+  font-size: 20px;
+  padding: 6px 10px;
+}
+
+/* 顶部队名与比分 */
+.scoreboard {
+  margin: 16px 0 10px;
+}
+.team-line {
+  font-size: var(--font-lg);
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.team {
+  display: inline-block;
+}
+.team.red { color: var(--red); }
+.team.blue { color: var(--blue); }
+
+.score-line {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+.score.red { color: var(--red); }
+.score.blue { color: var(--blue); }
+
+.timer {
+  font-size: 36px;
+  margin: 10px 0 16px;
+}
+
+.error {
+  color: #d60000;
+}
+
+.paused {
+  color: orange;
+  font-size: 28px;
+}
+
+/* 面板横向自适应排布 */
+.panels {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.panel {
+  flex: 1 1 45%;
+  max-width: 640px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.panel-title {
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+.accent-red { color: var(--red); }
+.accent-blue { color: var(--blue); }
+
+/* 项目块 */
+.projects {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.project {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 8px;
+  flex: 1 1 220px;
+  min-width: 220px;
+  background: #fafafa;
+}
+.project h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+.item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 6px 0;
+}
+.item-label {
+  flex: 1;
+  text-align: left;
+}
+.item-actions button {
+  font-size: 20px;
+  padding: 8px 16px;
+  margin-left: 6px;
+}
+
+.project-total {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* 面板底部与总分 */
+.panel-bottom {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+/* 违规按钮和项目按钮保持一致 */
+.panel-bottom button {
+  font-size: 20px;
+  padding: 8px 16px;
+  margin-left: 6px;
+}
+
+.foul {
+  font-weight: 800;
+}
+
+.panel-total {
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* 控件按钮区 */
+.controls {
+  margin-top: 18px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.controls button {
+  font-size: 20px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-start { background: #108a00; }
+.btn-pause { background: #ff8c00; }
+.btn-end   { background: #d60000; }
+.btn-submit{ background: #7c00d6; }
+.btn-reset { background: #0066cc; }
+.btn-clear { background: #444; } /* 新增清空按钮样式 */
+
+.winner {
+  color: gold;
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+.draw {
+  color: orange;
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+/* 暂停按钮统一样式 */
+.btn-pause {
+  background: #ff8c00;   /* 橙色背景 */
+  color: #fff;           /* 白色文字 */
+  font-size: 20px;       /* 字体大小 */
+  padding: 12px 24px;    /* 按钮大小 */
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}

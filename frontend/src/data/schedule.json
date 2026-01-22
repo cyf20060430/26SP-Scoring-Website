@@ -1,0 +1,55 @@
+[
+  { "match": 1, "red": "Team 1", "blue": "Team 2", "time": "", "result": "" },
+  { "match": 2, "red": "Team 1", "blue": "Team 3", "time": "", "result": "" },
+  { "match": 3, "red": "Team 1", "blue": "Team 4", "time": "", "result": "" },
+  { "match": 4, "red": "Team 1", "blue": "Team 5", "time": "", "result": "" },
+  { "match": 5, "red": "Team 1", "blue": "Team 6", "time": "", "result": "" },
+  { "match": 6, "red": "Team 1", "blue": "Team 7", "time": "", "result": "" },
+  { "match": 7, "red": "Team 1", "blue": "Team 8", "time": "", "result": "" },
+  { "match": 8, "red": "Team 1", "blue": "Team 9", "time": "", "result": "" },
+  { "match": 9, "red": "Team 1", "blue": "Team 10", "time": "", "result": "" },
+
+  { "match": 10, "red": "Team 2", "blue": "Team 3", "time": "", "result": "" },
+  { "match": 11, "red": "Team 2", "blue": "Team 4", "time": "", "result": "" },
+  { "match": 12, "red": "Team 2", "blue": "Team 5", "time": "", "result": "" },
+  { "match": 13, "red": "Team 2", "blue": "Team 6", "time": "", "result": "" },
+  { "match": 14, "red": "Team 2", "blue": "Team 7", "time": "", "result": "" },
+  { "match": 15, "red": "Team 2", "blue": "Team 8", "time": "", "result": "" },
+  { "match": 16, "red": "Team 2", "blue": "Team 9", "time": "", "result": "" },
+  { "match": 17, "red": "Team 2", "blue": "Team 10", "time": "", "result": "" },
+
+  { "match": 18, "red": "Team 3", "blue": "Team 4", "time": "", "result": "" },
+  { "match": 19, "red": "Team 3", "blue": "Team 5", "time": "", "result": "" },
+  { "match": 20, "red": "Team 3", "blue": "Team 6", "time": "", "result": "" },
+  { "match": 21, "red": "Team 3", "blue": "Team 7", "time": "", "result": "" },
+  { "match": 22, "red": "Team 3", "blue": "Team 8", "time": "", "result": "" },
+  { "match": 23, "red": "Team 3", "blue": "Team 9", "time": "", "result": "" },
+  { "match": 24, "red": "Team 3", "blue": "Team 10", "time": "", "result": "" },
+
+  { "match": 25, "red": "Team 4", "blue": "Team 5", "time": "", "result": "" },
+  { "match": 26, "red": "Team 4", "blue": "Team 6", "time": "", "result": "" },
+  { "match": 27, "red": "Team 4", "blue": "Team 7", "time": "", "result": "" },
+  { "match": 28, "red": "Team 4", "blue": "Team 8", "time": "", "result": "" },
+  { "match": 29, "red": "Team 4", "blue": "Team 9", "time": "", "result": "" },
+  { "match": 30, "red": "Team 4", "blue": "Team 10", "time": "", "result": "" },
+
+  { "match": 31, "red": "Team 5", "blue": "Team 6", "time": "", "result": "" },
+  { "match": 32, "red": "Team 5", "blue": "Team 7", "time": "", "result": "" },
+  { "match": 33, "red": "Team 5", "blue": "Team 8", "time": "", "result": "" },
+  { "match": 34, "red": "Team 5", "blue": "Team 9", "time": "", "result": "" },
+  { "match": 35, "red": "Team 5", "blue": "Team 10", "time": "", "result": "" },
+
+  { "match": 36, "red": "Team 6", "blue": "Team 7", "time": "", "result": "" },
+  { "match": 37, "red": "Team 6", "blue": "Team 8", "time": "", "result": "" },
+  { "match": 38, "red": "Team 6", "blue": "Team 9", "time": "", "result": "" },
+  { "match": 39, "red": "Team 6", "blue": "Team 10", "time": "", "result": "" },
+
+  { "match": 40, "red": "Team 7", "blue": "Team 8", "time": "", "result": "" },
+  { "match": 41, "red": "Team 7", "blue": "Team 9", "time": "", "result": "" },
+  { "match": 42, "red": "Team 7", "blue": "Team 10", "time": "", "result": "" },
+
+  { "match": 43, "red": "Team 8", "blue": "Team 9", "time": "", "result": "" },
+  { "match": 44, "red": "Team 8", "blue": "Team 10", "time": "", "result": "" },
+
+  { "match": 45, "red": "Team 9", "blue": "Team 10", "time": "", "result": "" }
+]

@@ -1,0 +1,65 @@
+.player-page {
+  margin: 80px; /* 增大页边距 */
+}
+
+/* 表格通用样式 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 18px;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+thead {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* 红蓝方队伍颜色 */
+.red-team {
+  color: red;
+}
+.blue-team {
+  color: blue;
+}
+
+/* 高亮规则 */
+.highlight-winner {
+  background-color: #90ee90 !important; /* 绿色 */
+}
+.highlight-loser {
+  background-color: #ffff99 !important; /* 黄色 */
+}
+.highlight-self {
+  background-color: #add8e6 !important; /* 蓝色 */
+  font-weight: bold;
+}
+
+/* 图例样式 */
+.legend {
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+.legend-green {
+  background-color: #90ee90;
+  padding: 2px 6px;
+}
+.legend-yellow {
+  background-color: #ffff99;
+  padding: 2px 6px;
+}
+.legend-blue {
+  background-color: #add8e6;
+  padding: 2px 6px;
+}

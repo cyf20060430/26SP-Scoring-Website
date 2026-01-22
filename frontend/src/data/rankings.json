@@ -1,0 +1,12 @@
+[
+  { "team": "Team 1", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 2", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 3", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 4", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 5", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 6", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 7", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 8", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 9", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 },
+  { "team": "Team 10", "played": 0, "win": 0, "loss": 0, "draw": 0, "points": 0 }
+]
