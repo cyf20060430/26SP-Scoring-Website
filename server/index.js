@@ -1,8 +1,62 @@
+// backend/index.js
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const bcrypt = require('bcrypt');
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const cors = require('cors');
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+}));
+
+// 使用 session 管理登录状态
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+// ===== 登录逻辑 =====
+const presetUser = {
+  username: 'admin',
+  passwordHash: bcrypt.hashSync('123456', 10) // 预设密码加密存储
+};
+
+// 登录接口
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  if (username === presetUser.username && bcrypt.compareSync(password, presetUser.passwordHash)) {
+    req.session.user = { username };
+    res.json({ success: true, message: '登录成功' });
+  } else {
+    res.status(401).json({ success: false, message: '用户名或密码错误' });
+  }
+});
+
+// 获取当前用户信息
+app.get('/api/current-user', (req, res) => {
+  if (req.session.user) {
+    res.json({ loggedIn: true, username: req.session.user.username });
+  } else {
+    res.json({ loggedIn: false });
+  }
+});
+
+// 登出接口
+app.post('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.json({ success: true, message: '已退出登录' });
+  });
+});
+
+// ===== 比赛计分逻辑 =====
 const server = http.createServer(app);
 const io = socketIO(server, {
   cors: {
@@ -115,10 +169,8 @@ function startTimer() {
 }
 
 io.on('connection', (socket) => {
-  // Send initial state
   broadcastState();
 
-  // Start game: enable scoring and start 5-minute timer
   socket.on('startGame', () => {
     if (!gameStarted) {
       gameStarted = true;
@@ -132,15 +184,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  /**
-   * Modify score
-   * payload: { alliance: 'red'|'blue', project: 'project1'|'project2'|'project3'|null, item: 'itemA'|'itemB'|'itemC'|'itemD'|'itemE'|'foul', delta: +1|-1 }
-   * Rules:
-   * - Cannot modify when not started, ended, or paused
-   * - Non-foul counts cannot go below 0
-   * - Foul counts cannot go below 0
-   * - Foul is stored on committing alliance, but contributes to opponent total
-   */
   socket.on('modifyScore', ({ alliance, project, item, delta }) => {
     if (!gameStarted || gameEnded) {
       socket.emit('errorMessage', '比赛未开始或已结束，不能修改分数');
@@ -157,7 +200,6 @@ io.on('connection', (socket) => {
       return;
     }
 
-    // Validate project and item paths
     if (!project || !score[alliance][project] || !(item in score[alliance][project])) {
       socket.emit('errorMessage', '非法的项目或得分项');
       return;
@@ -172,9 +214,6 @@ io.on('connection', (socket) => {
     broadcastState();
   });
 
-  /**
-   * Auto 30s pause, only once per alliance; while paused, other alliance cannot pause.
-   */
   socket.on('pause30s', (alliance) => {
     if (!gameStarted || gameEnded) return;
     if (paused) {
@@ -204,12 +243,8 @@ io.on('connection', (socket) => {
     }, 1000);
   });
 
-  /**
-   * Manual pause toggle (no countdown shown)
-   */
   socket.on('manualPause', () => {
     if (gameStarted && !gameEnded) {
-      // If toggling to paused, ensure any auto countdown is cleared
       paused = !paused;
       if (paused) {
         pauseRemaining = 0;
@@ -219,9 +254,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  /**
-   * End game immediately
-   */
   socket.on('endGame', () => {
     gameEnded = true;
     if (timer) { clearInterval(timer); timer = null; }
@@ -229,23 +261,10 @@ io.on('connection', (socket) => {
     broadcastState();
   });
 
-  /**
-   * Reset for next match
-   */
   socket.on('resetScore', () => {
     score = {
-      red: {
-        project1: { itemA: 0, itemB: 0 },
-        project2: { itemC: 0, itemD: 0 },
-        project3: { itemE: 0 },
-        foul: 0
-      },
-      blue: {
-        project1: { itemA: 0, itemB: 0 },
-        project2: { itemC: 0, itemD: 0 },
-        project3: { itemE: 0 },
-        foul: 0
-      }
+      red: { project1: { itemA: 0, itemB: 0 }, project2: { itemC: 0, itemD: 0 }, project3: { itemE: 0 }, foul: 0 },
+      blue: { project1: { itemA: 0, itemB: 0 }, project2: { itemC: 0, itemD: 0 }, project3: { itemE: 0 }, foul: 0 }
     };
     gameStarted = false;
     gameEnded = false;
